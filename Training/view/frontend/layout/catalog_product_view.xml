@@ -6,8 +6,7 @@
             <block class="Magento\Catalog\Block\Product\View" name="subtitle"
                    template="Convert_Training::product/view/subtitle.phtml"/>
         </referenceBlock>
-        <referenceBlock name="product.info.overview" remove="false"/>
-        <!--        change above from true to false-->
+        <referenceBlock name="product.info.overview" remove="true"/>
         <move element="product.info.description" destination="product.info.media"
               after="product.info.media.image"/>
         <referenceContainer name="content">
@@ -18,6 +17,5 @@
             <block class="Magento\Catalog\Block\Product\View" name="external.url.button"
                    after="product.info.media.image" template="Convert_Training::product/view/externalUrl.phtml"/>
         </referenceContainer>
-        <!--        <referenceContainer name="product.attributes" remove="true"/>-->
     </body>
 </page>
