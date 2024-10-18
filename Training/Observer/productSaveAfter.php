@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Convert\Training\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Convert\Training\Logger\Logger;
 
-class ProductSaveAfter implements ObserverInterface
+class productSaveAfter implements ObserverInterface
 {
 
     private Logger $logger;
@@ -21,14 +23,12 @@ class ProductSaveAfter implements ObserverInterface
     public function execute(Observer $observer)
     {
         $product = $observer->getEvent()->getProduct();
-        $productId = $product->getId();
+        if (!$productId = $product->getId()) {
+            return $this;
+        }
         $productName = $product->getName();
         $message = "'$productName' was saved with the ID '$productId'.";
-        $this->logMessage($message);
-    }
-
-    public function logMessage($message): void
-    {
         $this->logger->info($message);
+        return $this;
     }
 }

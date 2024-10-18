@@ -1,8 +1,8 @@
 <?php
 /** @var \Magento\Framework\View\Element\Template\ $block */
 
-$_product = $block->getProduct();
-$externalUrl = $_product->getData('external_url');
+$product = $block->getProduct();
+$externalUrl = $product->getData('external_url');
 ?>
 
 <div data-bind="scope: 'externalUrlSection'">

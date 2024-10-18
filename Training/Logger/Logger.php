@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Convert\Training\Logger;
 
 use Magento\Framework\Logger\Monolog;
